@@ -9,7 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bb61f94-532c-42a0-986d-2732e0dc1ab9" name="Changes" comment="update" />
+    <list default="true" id="0bb61f94-532c-42a0-986d-2732e0dc1ab9" name="Changes" comment="update design">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ear-module/target/ear-module-1.0-SNAPSHOT.ear" beforeDir="false" afterPath="$PROJECT_DIR$/ear-module/target/ear-module-1.0-SNAPSHOT.ear" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ear-module/target/ear-module-1.0-SNAPSHOT/ejb-module.jar" beforeDir="false" afterPath="$PROJECT_DIR$/ear-module/target/ear-module-1.0-SNAPSHOT/ejb-module.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ear-module/target/ear-module-1.0-SNAPSHOT/web-module.war" beforeDir="false" afterPath="$PROJECT_DIR$/ear-module/target/ear-module-1.0-SNAPSHOT/web-module.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejb-module/target/ejb-module-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/ejb-module/target/ejb-module-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-module/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-module/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-module/target/web-module-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/web-module/target/web-module-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-module/target/web-module-1.0-SNAPSHOT/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-module/target/web-module-1.0-SNAPSHOT/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +49,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Bimalsha/aucation-system&quot;,
+    &quot;url&quot;: &quot;https://github.com/Bimalsha/aucation-system.git&quot;,
     &quot;accountId&quot;: &quot;a491ffc0-5ff9-4c3c-95f7-c0cc3babe68e&quot;
   }
 }</component>
@@ -82,6 +91,7 @@
     &quot;Payara Server.Payara 6.26.0.executor&quot;: &quot;Run&quot;,
     &quot;Payara Server.Payara 6.27.0.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/auction-system&quot;,
@@ -206,6 +216,10 @@
       <workItem from="1749469036031" duration="542000" />
       <workItem from="1749469595862" duration="26000" />
       <workItem from="1749469640044" duration="49000" />
+      <workItem from="1749469827878" duration="378000" />
+      <workItem from="1749470226576" duration="7718000" />
+      <workItem from="1749484320907" duration="1129000" />
+      <workItem from="1749485466301" duration="468000" />
     </task>
     <task id="LOCAL-00001" summary="Add auction system core components including entities, EJBs, and REST resources">
       <option name="closed" value="true" />
@@ -271,6 +285,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add auction system core components including entities, EJBs, and REST resources" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update design" />
+    <option name="LAST_COMMIT_MESSAGE" value="update design" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ejb-module/target/classes/com/auction/ejb/AuthenticationBean.class</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

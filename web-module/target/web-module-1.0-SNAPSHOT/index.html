@@ -3,119 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distributed Online Auction System</title>
+    <title>NextGen Online Auction</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
                     colors: {
                         primary: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
                         },
-                        accent: {
-                            50: '#fefce8',
-                            100: '#fef9c3',
-                            200: '#fef08a',
-                            300: '#fde047',
-                            400: '#facc15',
-                            500: '#eab308',
-                            600: '#ca8a04',
-                            700: '#a16207',
-                            800: '#854d0e',
-                            900: '#713f12',
+                        secondary: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
                         }
                     }
                 }
             }
         }
     </script>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
         .auction-card {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
         .auction-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .toast {
+            animation: slide-in 0.5s forwards, slide-out 0.5s 4.5s forwards;
+        }
+        @keyframes slide-in {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slide-out {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50 font-sans leading-normal tracking-normal">
+<body class="bg-slate-100 font-sans leading-normal tracking-normal text-slate-800">
 
-<div class="container mx-auto p-4">
-    <h1 class="text-4xl font-bold text-center text-primary-800 mb-8">Online Auction System</h1>
+<!-- Toast Notification Container (Unchanged) -->
+<div id="notification-container" class="fixed top-5 right-5 z-50 space-y-3"></div>
 
-    <!-- User Info & Logout -->
-    <div id="user-info" class="bg-primary-100 border border-primary-300 text-primary-700 px-4 py-3 rounded-lg relative mb-6 hidden" role="alert">
-        <span class="block sm:inline">Logged in as <span id="current-username" class="font-bold"></span></span>
-        <button id="logout-btn" class="ml-4 bg-primary-600 hover:bg-primary-700 text-white font-bold py-1 px-3 rounded-md text-sm transition duration-200">Logout</button>
-    </div>
-
-    <!-- Login/Registration Section -->
-    <div id="auth-section" class="bg-white rounded-xl shadow-lg p-8 mb-8 max-w-md mx-auto border-t-4 border-primary-500">
-        <h2 id="auth-title" class="text-2xl font-semibold text-primary-800 mb-6">Login to Bid</h2>
-        <form id="auth-form">
-            <div class="mb-5">
-                <label for="auth-username" class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
-                <input type="text" id="auth-username" name="username" class="shadow-sm border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition duration-200" required>
-            </div>
-            <div class="mb-6">
-                <label for="auth-password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
-                <input type="password" id="auth-password" name="password" class="shadow-sm border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition duration-200" required>
-            </div>
-            <div class="flex items-center justify-between">
-                <button type="submit" id="auth-submit-btn" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-5 rounded-lg focus:outline-none focus:shadow-outline transition duration-200">
-                    Login
-                </button>
-                <button type="button" id="toggle-auth-mode-btn" class="inline-block align-baseline font-bold text-sm text-primary-600 hover:text-primary-800 transition duration-200">
-                    Register Instead
-                </button>
-            </div>
-            <p class="text-sm text-gray-600 mt-4" id="auth-hint">Demo Users: user1/pass1, user2/pass2</p>
-        </form>
-        <p id="auth-message" class="text-red-500 text-xs italic mt-4"></p>
-    </div>
-
-    <!-- Auction List (hidden until authenticated) -->
-    <div id="auction-list-section" class="hidden">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-2xl font-semibold text-primary-800">Active Auctions</h2>
-            <div class="bg-accent-400 rounded-full px-4 py-1 text-sm text-primary-900 font-medium shadow-sm">
-                Live Bidding
+<!-- ================================================================== -->
+<!-- START: NEW FULL-PAGE LOGIN WRAPPER                             -->
+<!-- This entire section is shown only when the user is logged out.   -->
+<!-- ================================================================== -->
+<div id="login-page-wrapper" class="hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+        <!-- Left Side: Branding & Image -->
+        <div class="relative hidden md:flex flex-col justify-center items-center bg-cover bg-center p-12 text-white" style="background-image: url('https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=2070&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-primary-900 opacity-80"></div>
+            <div class="relative z-10 text-center">
+                <h2 class="text-5xl font-extrabold mb-4">NextGen Auctions</h2>
+                <p class="text-xl text-primary-200">Where value meets opportunity. Secure your next prized possession.</p>
             </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8" id="auction-list">
-            <!-- Auction cards will be loaded here by JavaScript -->
-            <div class="bg-white rounded-lg shadow-md p-6 animate-pulse">
-                <div class="h-6 bg-gray-300 rounded w-3/4 mb-4"></div>
-                <div class="h-4 bg-gray-300 rounded w-1/2 mb-2"></div>
-                <div class="h-4 bg-gray-300 rounded w-full"></div>
-            </div>
-            <div class="bg-white rounded-lg shadow-md p-6 animate-pulse">
-                <div class="h-6 bg-gray-300 rounded w-3/4 mb-4"></div>
-                <div class="h-4 bg-gray-300 rounded w-1/2 mb-2"></div>
-                <div class="h-4 bg-gray-300 rounded w-full"></div>
-            </div>
-            <div class="bg-white rounded-lg shadow-md p-6 animate-pulse">
-                <div class="h-6 bg-gray-300 rounded w-3/4 mb-4"></div>
-                <div class="h-4 bg-gray-300 rounded w-1/2 mb-2"></div>
-                <div class="h-4 bg-gray-300 rounded w-full"></div>
+        <!-- Right Side: Login Form -->
+        <div class="bg-slate-50 flex flex-col justify-center items-center p-8">
+            <!-- The original auth-section is now placed here -->
+            <div id="auth-section" class="bg-white rounded-xl shadow-2xl p-8 md:p-10 w-full max-w-md">
+                <h2 id="auth-title" class="text-3xl font-bold text-center text-primary-800 mb-6">Login to Your Account</h2>
+                <p id="auth-hint" class="text-center text-slate-500 mb-8">Demo: user1/pass1, user2/pass2</p>
+                <form id="auth-form">
+                    <div class="mb-5">
+                        <label for="auth-username" class="block text-slate-700 text-sm font-bold mb-2">Username</label>
+                        <input type="text" id="auth-username" name="username" class="appearance-none rounded-lg relative block w-full px-4 py-3 border border-slate-300 placeholder-slate-500 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-200" placeholder="Enter your username" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="auth-password" class="block text-slate-700 text-sm font-bold mb-2">Password</label>
+                        <input type="password" id="auth-password" name="password" class="appearance-none rounded-lg relative block w-full px-4 py-3 border border-slate-300 placeholder-slate-500 text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-200" placeholder="Enter your password" required>
+                    </div>
+                    <div class="flex flex-col items-center gap-4">
+                        <button type="submit" id="auth-submit-btn" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-5 rounded-lg focus:outline-none focus:shadow-outline transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            Login
+                        </button>
+                        <button type="button" id="toggle-auth-mode-btn" class="font-medium text-sm text-primary-600 hover:text-primary-800 transition duration-200">
+                            Don't have an account? Register
+                        </button>
+                    </div>
+                </form>
+                <p id="auth-message" class="text-center text-sm mt-6"></p>
             </div>
         </div>
     </div>
 </div>
+<!-- ================================================================== -->
+<!-- END: NEW FULL-PAGE LOGIN WRAPPER                               -->
+<!-- ================================================================== -->
+
+
+<!-- ================================================================== -->
+<!-- START: ORIGINAL LOGGED-IN VIEW                                 -->
+<!-- This content is hidden until the user successfully logs in.      -->
+<!-- ================================================================== -->
+<!-- Header -->
+<header class="bg-white shadow-md sticky top-0 z-40 hidden">
+    <div class="container mx-auto flex justify-between items-center p-4">
+        <h1 class="text-3xl font-bold text-primary-700">
+            <a href="#">NextGen Auctions</a>
+        </h1>
+        <div id="user-info" class="hidden items-center space-x-4">
+            <span class="text-slate-600">Welcome, <span id="current-username" class="font-bold text-primary-800"></span></span>
+            <button id="logout-btn" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded-lg text-sm transition duration-300 shadow-sm hover:shadow-md">
+                Logout
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="container mx-auto p-4 md:p-8 hidden">
+    <!-- Auction List (hidden until authenticated) -->
+    <div id="auction-list-section" class="hidden">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold text-primary-800">Live Auctions</h2>
+            <div class="bg-red-500 text-white rounded-full px-4 py-2 text-sm font-semibold shadow-md flex items-center gap-2">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+                </span>
+                Live Bidding
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-8" id="auction-list">
+            <!-- Loading Skeletons -->
+            <div class="bg-white rounded-lg shadow-md p-6 animate-pulse">
+                <div class="bg-slate-200 h-48 rounded-md mb-4"></div>
+                <div class="h-6 bg-slate-200 rounded w-3/4 mb-4"></div>
+                <div class="h-4 bg-slate-200 rounded w-1/2 mb-2"></div>
+                <div class="h-10 bg-slate-200 rounded w-full mt-4"></div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 animate-pulse">
+                <div class="bg-slate-200 h-48 rounded-md mb-4"></div>
+                <div class="h-6 bg-slate-200 rounded w-3/4 mb-4"></div>
+                <div class="h-4 bg-slate-200 rounded w-1/2 mb-2"></div>
+                <div class="h-10 bg-slate-200 rounded w-full mt-4"></div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 animate-pulse">
+                <div class="bg-slate-200 h-48 rounded-md mb-4"></div>
+                <div class="h-6 bg-slate-200 rounded w-3/4 mb-4"></div>
+                <div class="h-4 bg-slate-200 rounded w-1/2 mb-2"></div>
+                <div class="h-10 bg-slate-200 rounded w-full mt-4"></div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- ================================================================== -->
+<!-- END: ORIGINAL LOGGED-IN VIEW                                   -->
+<!-- ================================================================== -->
+
 
 <script>
+    // --- Element Selectors ---
+    const loginPageWrapper = document.getElementById('login-page-wrapper'); // New selector for the full-page login
+    const header = document.querySelector('header');
+    const main = document.querySelector('main');
+
+    // Original selectors (unchanged)
     const authSection = document.getElementById('auth-section');
     const authTitle = document.getElementById('auth-title');
     const authForm = document.getElementById('auth-form');
@@ -134,9 +216,9 @@
 
     let websocket;
     const CONTEXT_ROOT = '/auction-system';
-    let isLoginMode = true; // State for login vs registration
+    let isLoginMode = true;
 
-    // --- Authentication Functions ---
+    // --- Authentication Functions (Unchanged Logic) ---
     async function handleAuthSubmit(event) {
         event.preventDefault();
         const username = authUsernameInput.value;
@@ -159,39 +241,42 @@
             });
             const data = await response.json();
 
-            if (response.ok || response.status === 201) { // 201 Created for registration
+            if (response.ok || response.status === 201) {
                 authMessage.textContent = data.message || `${method} successful.`;
-                authMessage.className = 'text-green-600 text-xs italic mt-4';
-                if (isLoginMode) { // Only attempt UI update on successful login
+                authMessage.className = 'text-center text-sm mt-6 text-green-600';
+                if (isLoginMode) {
                     localStorage.setItem('authToken', data.token);
                     localStorage.setItem('currentUsername', data.username);
                     updateUIForLogin(data.username);
                     fetchAuctions();
-                    connectWebSocket(); // This will connect, but updates won't flow from MDB if commented out
-                } else { // After successful registration, switch to login mode
+                    connectWebSocket();
+                } else {
                     switchAuthMode(true);
-                    authUsernameInput.value = username; // Keep username
-                    authPasswordInput.value = ''; // Clear password
+                    authUsernameInput.value = username;
+                    authPasswordInput.value = '';
+                    authMessage.textContent = 'Registration successful! Please log in.';
+                    authMessage.className = 'text-center text-sm mt-6 text-green-600';
                 }
             } else {
                 authMessage.textContent = data.message || `${method} failed.`;
-                authMessage.className = 'text-red-500 text-xs italic mt-4';
+                authMessage.className = 'text-center text-sm mt-6 text-red-500';
             }
         } catch (error) {
-            authMessage.textContent = `Network error during ${method.toLowerCase()}.`;
-            authMessage.className = 'text-red-700 text-xs italic mt-4';
+            authMessage.textContent = `Network error during ${method.toLowerCase()}. Please try again.`;
+            authMessage.className = 'text-center text-sm mt-6 text-red-700';
             console.error(`${method} error:`, error);
         }
     }
 
+    // --- Other Functions (Unchanged Logic) ---
     function switchAuthMode(toLogin) {
         isLoginMode = toLogin;
-        authTitle.textContent = isLoginMode ? 'Login to Bid' : 'Register New User';
+        authTitle.textContent = isLoginMode ? 'Login to Your Account' : 'Create a New Account';
         authSubmitBtn.textContent = isLoginMode ? 'Login' : 'Register';
-        toggleAuthModeBtn.textContent = isLoginMode ? 'Register Instead' : 'Login Instead';
-        authHint.textContent = isLoginMode ? 'Demo Users: user1/pass1, user2/pass2' : 'Choose a unique username and strong password.';
-        authMessage.textContent = ''; // Clear messages
-        authForm.reset(); // Clear form fields
+        toggleAuthModeBtn.innerHTML = isLoginMode ? `Don't have an account? <span class="font-bold">Register</span>` : `Already have an account? <span class="font-bold">Login</span>`;
+        authHint.textContent = isLoginMode ? 'Demo: user1/pass1, user2/pass2' : 'Choose a unique username and strong password.';
+        authMessage.textContent = '';
+        authForm.reset();
     }
 
     async function handleLogout() {
@@ -199,18 +284,13 @@
         if (!token) return;
 
         try {
-            const response = await fetch(`${CONTEXT_ROOT}/api/auth/logout`, {
+            await fetch(`${CONTEXT_ROOT}/api/auth/logout`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
-
-            if (response.ok) {
-                logMessage('Logged out successfully.', 'text-green-600');
-            } else {
-                logMessage('Logout failed. Token might be invalid or expired on server.', 'text-red-500');
-            }
+            logMessage('You have been logged out successfully.', 'success');
         } catch (error) {
-            logMessage('Network error during logout.', 'text-red-700');
+            logMessage('Network error during logout.', 'error');
             console.error('Logout error:', error);
         } finally {
             localStorage.removeItem('authToken');
@@ -222,154 +302,148 @@
         }
     }
 
+    // --- UI Update functions are modified to toggle the new page ---
     function updateUIForLogin(username) {
-        authSection.classList.add('hidden');
+        // Hide the full-page login and show the main application
+        loginPageWrapper.classList.add('hidden');
+        header.classList.remove('hidden');
+        main.classList.remove('hidden');
+
+        // Original logic to show user-specific elements
         auctionListSection.classList.remove('hidden');
         userInfoDiv.classList.remove('hidden');
+        userInfoDiv.classList.add('flex');
         currentUsernameSpan.textContent = username;
     }
 
     function updateUIForLogout() {
-        authSection.classList.remove('hidden');
+        // Show the full-page login and hide the main application
+        loginPageWrapper.classList.remove('hidden');
+        header.classList.add('hidden');
+        main.classList.add('hidden');
+
+        // Original logic to hide user-specific elements
         auctionListSection.classList.add('hidden');
         userInfoDiv.classList.add('hidden');
-        auctionListDiv.innerHTML = '<p class="col-span-full text-center text-gray-500">Please login or register to view auctions.</p>';
+        userInfoDiv.classList.remove('flex');
+        auctionListDiv.innerHTML = '<p class="col-span-full text-center text-slate-500">Please login or register to view auctions.</p>';
     }
 
-    // --- WebSocket Functions ---
+    // --- WebSocket Functions (Unchanged) ---
     function connectWebSocket() {
         if (websocket && (websocket.readyState === WebSocket.OPEN || websocket.readyState === WebSocket.CONNECTING)) {
             return;
         }
-
         const wsUrl = `ws://${window.location.host}${CONTEXT_ROOT}/auctionUpdates`;
         websocket = new WebSocket(wsUrl);
-
-        websocket.onopen = function(event) {
-            logMessage('WebSocket connected.', 'text-green-600');
-        };
-
+        websocket.onopen = () => logMessage('Live connection established.', 'info');
         websocket.onmessage = function(event) {
             try {
                 const data = JSON.parse(event.data);
                 if (data.auctionId && data.currentBid !== undefined && data.winningBidder) {
                     updateAuctionCard(data);
-                    logMessage(`Auction ${data.title} (#${data.auctionId}): New bid $${data.currentBid.toFixed(2)} by ${data.winningBidder}`, 'text-blue-600');
-                } else {
-                    logMessage(`Server: ${event.data}`, 'text-gray-500');
+                    logMessage(`New bid on "${data.title}": $${data.currentBid.toFixed(2)} by ${data.winningBidder}`, 'info');
                 }
             } catch (e) {
-                logMessage(`Server: ${event.data}`, 'text-gray-500');
+                console.warn('Received non-JSON WebSocket message:', event.data);
             }
         };
-
-        websocket.onclose = function(event) {
-            logMessage('WebSocket disconnected. Trying to reconnect in 5 seconds...', 'text-red-600');
+        websocket.onclose = () => {
+            logMessage('Live connection lost. Reconnecting...', 'warning');
             if (localStorage.getItem('authToken')) {
                 setTimeout(connectWebSocket, 5000);
             }
         };
-
-        websocket.onerror = function(error) {
-            logMessage('WebSocket error: ' + error.message, 'text-red-700');
+        websocket.onerror = (error) => {
+            logMessage('WebSocket error. Please check your connection.', 'error');
+            console.error('WebSocket Error:', error);
         };
     }
 
-    // --- Auction Listing & Bidding Functions ---
+    // --- Auction Listing & Bidding Functions (Unchanged) ---
     async function fetchAuctions() {
         const token = localStorage.getItem('authToken');
         if (!token) {
-            logMessage('Not authenticated. Please login or register to fetch auctions.', 'text-orange-500');
-            auctionListDiv.innerHTML = '<p class="col-span-full text-center text-gray-500">Please login or register to view auctions.</p>';
+            logMessage('Authentication required to view auctions.', 'warning');
+            auctionListDiv.innerHTML = '<p class="col-span-full text-center text-slate-500">Please login or register to view auctions.</p>';
             return;
         }
-
         try {
             const response = await fetch(`${CONTEXT_ROOT}/api/auctions`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (!response.ok) {
                 if (response.status === 401) {
-                    logMessage('Authentication failed for fetching auctions. Please re-login.', 'text-red-500');
+                    logMessage('Your session has expired. Please log in again.', 'error');
                     handleLogout();
                 }
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const auctions = await response.json();
             auctionListDiv.innerHTML = '';
-
             if (auctions.length === 0) {
-                auctionListDiv.innerHTML = '<p class="col-span-full text-center text-gray-500">No active auctions available.</p>';
+                auctionListDiv.innerHTML = '<p class="col-span-full text-center text-slate-500">No active auctions at the moment. Check back soon!</p>';
                 return;
             }
-
             auctions.forEach(auction => {
                 const card = createAuctionCard(auction);
                 auctionListDiv.appendChild(card);
             });
         } catch (error) {
-            logMessage(`Failed to load auctions: ${error.message}`, 'text-red-700');
-            auctionListDiv.innerHTML = '<p class="col-span-full text-center text-red-700">Error loading auctions. Check server status.</p>';
+            logMessage(`Failed to load auctions: ${error.message}`, 'error');
+            auctionListDiv.innerHTML = '<p class="col-span-full text-center text-red-700 font-semibold">Could not load auctions. Please check the server status and try again.</p>';
         }
     }
 
     function createAuctionCard(auction) {
         const card = document.createElement('div');
         card.id = `auction-${auction.id}`;
-        card.className = 'bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between auction-card border border-gray-100';
-
-        // Debug info for images
-        console.log(`Auction ${auction.id} image URL:`, auction.imageUrl);
-
+        card.className = 'auction-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col';
+        const minBid = (auction.currentBid + auction.minIncrement).toFixed(2);
         card.innerHTML = `
-        <div>
-            <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                ${auction.imageUrl
-            ? `<img src="${auction.imageUrl}" alt="${auction.title}" class="w-full h-full object-cover"
-                    onerror="this.onerror=null; this.src='https://via.placeholder.com/400x200?text=Image+Not+Found'; this.classList.add('bg-gray-100');">`
-            : `<div class="w-full h-full flex items-center justify-center bg-gray-200"><span class="text-gray-500">No image available</span></div>`}
+            <div class="aspect-w-16 aspect-h-9">
+                <img src="${auction.imageUrl || 'https://via.placeholder.com/600x338?text=No+Image'}"
+                     alt="${auction.title}" class="w-full h-full object-cover"
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/600x338?text=Image+Error';">
             </div>
-            <h3 class="text-xl font-semibold text-primary-800 mb-2">${auction.title}</h3>
-            <div class="flex items-center mb-2">
-                <span class="text-gray-600">Current Bid:</span>
-                <span id="current-bid-${auction.id}" class="font-bold text-primary-600 text-lg ml-2">$${auction.currentBid.toFixed(2)}</span>
-            </div>
-            <div class="bg-accent-100 text-accent-800 text-xs font-semibold px-2.5 py-1 rounded-full inline-block mb-3">
-                Min Increment: $${auction.minIncrement.toFixed(2)}
-            </div>
-        </div>
-        <form class="mt-4" data-auction-id="${auction.id}">
-            <div class="relative">
-                <input type="number" step="0.01" min="${auction.currentBid + auction.minIncrement}" placeholder="Your Bid" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition duration-200 mb-3" required>
-                <span class="absolute left-3 top-3 text-gray-400">$</span>
-            </div>
-            <button type="submit" class="w-full bg-primary-600 text-white p-3 rounded-lg hover:bg-primary-700 transition duration-300 font-semibold flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-                Place Bid
-            </button>
-        </form>
-    `;
-
-        const form = card.querySelector('form');
-        form.addEventListener('submit', handleBidSubmission);
+            <div class="p-6 flex-grow flex flex-col">
+                <h3 class="text-2xl font-bold text-primary-800 mb-2 flex-grow">${auction.title}</h3>
+                <div class="mb-4">
+                    <p class="text-sm text-slate-500">Current Bid</p>
+                    <p id="current-bid-${auction.id}" class="text-4xl font-bold text-primary-600">$${auction.currentBid.toFixed(2)}</p>
+                    <p class="text-xs text-slate-400 mt-1">Minimum Increment: $${auction.minIncrement.toFixed(2)}</p>
+                </div>
+                <form class="mt-auto" data-auction-id="${auction.id}">
+                    <div class="flex items-center space-x-2">
+                         <div class="relative flex-grow">
+                             <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-semibold">$</span>
+                             <input type="number" step="0.01" min="${minBid}" placeholder="Your bid (min $${minBid})" class="w-full pl-7 pr-3 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 transition" required>
+                         </div>
+                        <button type="submit" class="bg-secondary-500 text-white p-3 rounded-lg hover:bg-secondary-600 transition duration-300 font-semibold shadow-sm hover:shadow-md shrink-0">
+                            Place Bid
+                        </button>
+                    </div>
+                </form>
+            </div>`;
+        card.querySelector('form').addEventListener('submit', handleBidSubmission);
         return card;
     }
 
     function updateAuctionCard(data) {
-        const currentBidSpan = document.getElementById(`current-bid-${data.auctionId}`);
-        const winningBidderSpan = document.getElementById(`winning-bidder-${data.auctionId}`);
-        const bidInput = document.querySelector(`#auction-${data.auctionId} form input[type="number"]`);
-
+        const card = document.getElementById(`auction-${data.auctionId}`);
+        if (!card) return;
+        const currentBidSpan = card.querySelector(`#current-bid-${data.auctionId}`);
+        const bidInput = card.querySelector(`form input[type="number"]`);
+        const minIncrement = parseFloat(card.querySelector('.text-xs.text-slate-400').textContent.split('$')[1] || 0);
+        const newMinBid = (data.currentBid + minIncrement).toFixed(2);
         if (currentBidSpan) {
             currentBidSpan.textContent = `$${data.currentBid.toFixed(2)}`;
-            if (bidInput) {
-                bidInput.min = (data.currentBid + (data.minIncrement || 0)).toFixed(2);
-            }
+            currentBidSpan.classList.add('animate-pulse', 'text-secondary-500');
+            setTimeout(() => currentBidSpan.classList.remove('animate-pulse', 'text-secondary-500'), 2000);
         }
-        if (winningBidderSpan) {
-            winningBidderSpan.textContent = data.winningBidder || 'None';
+        if (bidInput) {
+            bidInput.min = newMinBid;
+            bidInput.placeholder = `Your bid (min $${newMinBid})`;
         }
     }
 
@@ -377,57 +451,61 @@
         event.preventDefault();
         const form = event.target;
         const auctionId = form.dataset.auctionId;
-        const bidAmount = form.querySelector('input[type="number"]').value;
+        const bidInput = form.querySelector('input[type="number"]');
+        const bidAmount = bidInput.value;
         const token = localStorage.getItem('authToken');
-
         if (!token) {
-            logMessage('You must be logged in to place a bid.', 'text-red-500');
+            logMessage('You must be logged in to bid.', 'error');
             return;
         }
         if (bidAmount === '') {
-            logMessage('Please enter a bid amount.', 'text-red-500');
+            logMessage('Please enter a valid bid amount.', 'warning');
             return;
         }
-
-        const apiUrl = `${CONTEXT_ROOT}/api/auctions/${auctionId}/bid`;
-
         try {
-            const response = await fetch(apiUrl, {
+            const response = await fetch(`${CONTEXT_ROOT}/api/auctions/${auctionId}/bid`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Authorization': `Bearer ${token}`
                 },
-                body: new URLSearchParams({
-                    bidAmount: parseFloat(bidAmount)
-                })
+                body: new URLSearchParams({ bidAmount: parseFloat(bidAmount) })
             });
-
             const message = await response.text();
             if (response.ok || response.status === 202) {
-                logMessage(`Bid for auction ${auctionId}: ${message}`, 'text-green-500');
+                logMessage(`Bid placed: ${message}`, 'success');
                 form.reset();
             } else if (response.status === 401) {
-                logMessage(`Authentication failed for bid: ${message}. Please re-login.`, 'text-red-500');
+                logMessage(`Authentication failed: ${message}. Please re-login.`, 'error');
                 handleLogout();
             } else {
-                logMessage(`Error bidding for auction ${auctionId}: ${message}`, 'text-red-500');
+                logMessage(`Bid failed: ${message}`, 'error');
             }
         } catch (error) {
-            logMessage(`Network error during bid submission: ${error.message}`, 'text-red-700');
+            logMessage(`Network error during bid: ${error.message}`, 'error');
             console.error('Bid submission error:', error);
         }
     }
 
-    function logMessage(message, className = '') {
-        console.log(`[${new Date().toLocaleTimeString()}] ${message}`);
-        // Show critical messages as alerts
-        if (className.includes('red-700') || className.includes('red-600')) {
-            alert(message);
+    function logMessage(message, type = 'info') {
+        console.log(`[${type.toUpperCase()}] ${message}`);
+        const container = document.getElementById('notification-container');
+        if (!container) return;
+        let bgColor, textColor, icon;
+        switch (type) {
+            case 'success': bgColor = 'bg-green-500'; textColor = 'text-white'; icon = '✓'; break;
+            case 'error': bgColor = 'bg-red-500'; textColor = 'text-white'; icon = '✖'; break;
+            case 'warning': bgColor = 'bg-yellow-400'; textColor = 'text-slate-800'; icon = '!'; break;
+            default: bgColor = 'bg-blue-500'; textColor = 'text-white'; icon = 'ℹ'; break;
         }
+        const toast = document.createElement('div');
+        toast.className = `toast flex items-center p-4 rounded-lg shadow-xl ${bgColor} ${textColor}`;
+        toast.innerHTML = `<span class="font-bold text-xl mr-3">${icon}</span> <span>${message}</span>`;
+        container.appendChild(toast);
+        setTimeout(() => toast.remove(), 5000);
     }
 
-    // --- Initialization ---
+    // --- Initialization (Unchanged Logic) ---
     document.addEventListener('DOMContentLoaded', () => {
         authForm.addEventListener('submit', handleAuthSubmit);
         toggleAuthModeBtn.addEventListener('click', () => switchAuthMode(!isLoginMode));
@@ -437,15 +515,10 @@
         const storedUsername = localStorage.getItem('currentUsername');
 
         if (storedToken && storedUsername) {
-            fetch(`${CONTEXT_ROOT}/api/auth/me`, {
-                headers: { 'Authorization': `Bearer ${storedToken}` }
-            })
+            fetch(`${CONTEXT_ROOT}/api/auth/me`, { headers: { 'Authorization': `Bearer ${storedToken}` } })
                 .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw new Error('Token validation failed on server.');
-                    }
+                    if (!response.ok) throw new Error('Token validation failed');
+                    return response.json();
                 })
                 .then(data => {
                     updateUIForLogin(data.username);
@@ -453,14 +526,13 @@
                     connectWebSocket();
                 })
                 .catch(error => {
-                    console.error('Initial token validation error:', error);
-                    logMessage('Your session expired or is invalid. Please log in again.', 'text-red-500');
+                    console.error('Initial token validation error:', error.message);
+                    logMessage('Your session is invalid. Please log in again.', 'warning');
                     handleLogout();
                 });
         } else {
             updateUIForLogout();
-            switchAuthMode(true); // Default to login mode
-            logMessage('Please log in or register to participate in auctions.', 'text-orange-500');
+            switchAuthMode(true);
         }
     });
 </script>
