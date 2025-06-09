@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ear-module:ear" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0bb61f94-532c-42a0-986d-2732e0dc1ab9" name="Changes" comment="update" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;BimalshaDinuwan&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Bimalsha/aucation-system&quot;,
+    &quot;accountId&quot;: &quot;a491ffc0-5ff9-4c3c-95f7-c0cc3babe68e&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2y3q0sdyqgvSMDEhGzk6Mm5xohe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;GlassFish Server.GlassFish5.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.auction-system [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.auction-system [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.auction-system [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ear-module [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ear-module [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ejb-module [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ejb-module [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.web-module [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.web-module [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.web-module [package].executor&quot;: &quot;Run&quot;,
+    &quot;Payara Server.Payara 6.26.0.executor&quot;: &quot;Run&quot;,
+    &quot;Payara Server.Payara 6.27.0.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/auction-system&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\auction-system\web-module\src\main\webapp" />
+      <recent name="C:\Users\User\IdeaProjects\auction-system\web-module\webapp" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Payara 6.26.0" type="PayaraServerConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Payara 6.26.0" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="C:/Program Files/Java/jdk-17" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="ear-module:ear">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="DOMAIN_NAME" value="domain1" />
+        <option name="PRESERVE" value="false" />
+        <option name="COMPATIBILITY" value="false" />
+        <option name="VIRTUAL_SERVER" />
+        <option name="USERNAME" value="admin" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="GlassFish" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9009" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="ear-module:ear" />
+        </option>
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="clean install" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0bb61f94-532c-42a0-986d-2732e0dc1ab9" name="Changes" comment="" />
+      <created>1749073385996</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749073385996</updated>
+      <workItem from="1749073386727" duration="2894000" />
+      <workItem from="1749076326028" duration="4582000" />
+      <workItem from="1749080928235" duration="8581000" />
+      <workItem from="1749126754972" duration="5325000" />
+      <workItem from="1749138449855" duration="1794000" />
+      <workItem from="1749178238709" duration="1249000" />
+      <workItem from="1749218405482" duration="2326000" />
+      <workItem from="1749278634935" duration="2740000" />
+      <workItem from="1749355873111" duration="18012000" />
+      <workItem from="1749440496096" duration="9158000" />
+      <workItem from="1749469036031" duration="542000" />
+      <workItem from="1749469595862" duration="26000" />
+      <workItem from="1749469640044" duration="49000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add auction system core components including entities, EJBs, and REST resources">
+      <option name="closed" value="true" />
+      <created>1749111115062</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1749111115062</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add auction system core components including entities, EJBs, and REST resources">
+      <option name="closed" value="true" />
+      <created>1749142169640</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1749142169640</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add auction system core components including entities, EJBs, and REST resources">
+      <option name="closed" value="true" />
+      <created>1749218563190</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1749218563190</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update">
+      <option name="closed" value="true" />
+      <created>1749279551377</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1749279551377</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:jakarta.enterprise:jakarta.enterprise.cdi-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.ejb:jakarta.ejb-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.batch:jakarta.batch-api" />
+    <option featureType="dependencySupport" implementationName="maven-packaging:ejb" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
+    <option featureType="dependencySupport" implementationName="maven-packaging:war" />
+    <option featureType="dependencySupport" implementationName="maven-packaging:ear" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.faces:jakarta.faces-api" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add auction system core components including entities, EJBs, and REST resources" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
+</project>

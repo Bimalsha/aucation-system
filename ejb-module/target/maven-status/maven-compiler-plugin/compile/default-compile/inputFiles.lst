@@ -1,0 +1,16 @@
+D:\auction-system\ejb-module\src\main\java\com\auction\ejb\WebSocketRegistryEJB.java
+D:\auction-system\ejb-module\src\main\java\com\auction\ejb\BidManagerBean.java
+D:\auction-system\ejb-module\src\main\java\com\auction\jms\AuctionUpdateMDB.java
+D:\auction-system\ejb-module\src\main\java\com\auction\ejb\AuctionManager.java
+D:\auction-system\ejb-module\src\main\java\com\auction\entity\Auction.java
+D:\auction-system\ejb-module\src\main\java\com\auction\entity\User.java
+D:\auction-system\ejb-module\src\main\java\com\auction\ejb\BidManager.java
+D:\auction-system\ejb-module\src\main\java\com\auction\ejb\AuthenticationBean.java
+D:\auction-system\ejb-module\src\main\java\com\auction\ejb\AuctionWebSocketEndpointLocal.java
+D:\auction-system\ejb-module\src\main\java\com\auction\jms\BidProcessorMDB.java
+D:\auction-system\ejb-module\src\main\java\com\auction\ejb\AuctionManagerBean.java
+D:\auction-system\ejb-module\src\main\java\com\auction\ejb\AuthenticationServiceSingleton.java
+D:\auction-system\ejb-module\src\main\java\com\auction\ejb\Authentication.java
+D:\auction-system\ejb-module\src\main\java\com\auction\entity\AuctionStatus.java
+D:\auction-system\ejb-module\src\main\java\com\auction\ejb\WebSocketBroadcaster.java
+D:\auction-system\ejb-module\src\main\java\com\auction\ejb\AuctionInMemoryStorageSingleton.java

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Auction System - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+<!-- Header with Navigation -->
+<header class="bg-white shadow-md">
+    <div class="container mx-auto p-4 flex items-center justify-between">
+        <h1 class="text-3xl font-bold text-gray-800">Online Auction System</h1>
+        <nav>
+            <a href="signin.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Sign In
+            </a>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="bg-blue-600 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-6">Welcome to Our Auction Platform</h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">Bid on unique items, create your own auctions, and experience real-time bidding with other users.</p>
+        <a href="signin.html" class="bg-white text-blue-600 hover:bg-gray-100 py-3 px-8 rounded-lg font-bold text-lg">
+            Get Started
+        </a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-12">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Why Choose Our Platform</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-3">Real-time Bidding</h3>
+                <p class="text-gray-600">Experience the excitement of live auctions with instant bid updates.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-3">Create Auctions</h3>
+                <p class="text-gray-600">List your own items for auction with custom starting bids and increments.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-3">Secure Platform</h3>
+                <p class="text-gray-600">Our system ensures safe transactions and protects user information.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Section -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">How It Works</h2>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
+            <div class="text-center max-w-xs">
+                <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">1</div>
+                <h3 class="text-xl font-semibold mb-2">Create an Account</h3>
+                <p class="text-gray-600">Sign up in seconds to access all features</p>
+            </div>
+            <div class="text-center max-w-xs">
+                <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">2</div>
+                <h3 class="text-xl font-semibold mb-2">Browse Auctions</h3>
+                <p class="text-gray-600">Find items you're interested in</p>
+            </div>
+            <div class="text-center max-w-xs">
+                <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">3</div>
+                <h3 class="text-xl font-semibold mb-2">Place Your Bids</h3>
+                <p class="text-gray-600">Participate in real-time bidding</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-blue-600 text-white py-10">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to start bidding?</h2>
+        <a href="signin.html" class="inline-block bg-white text-blue-600 hover:bg-gray-100 py-2 px-6 rounded-lg font-bold mt-2">
+            Sign In Now
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2023 Online Auction System. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Check if user is already logged in, redirect to index if they are
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = localStorage.getItem('authToken');
+        if (token) {
+            window.location.href = 'index.html';
+        }
+    });
+</script>
+</body>
+</html>

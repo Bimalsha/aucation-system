@@ -1,0 +1,8 @@
+com\auction\web\AuctionResource.class
+com\auction\web\Authenticated.class
+com\auction\web\AuthenticationFilter.class
+com\auction\websocket\WebSocketMessageHandler.class
+com\auction\websocket\AuctionWebSocketEndpoint.class
+com\auction\web\AuthResource.class
+com\auction\web\AuctionApplication.class
+com\auction\web\AuthenticationFilter$1.class

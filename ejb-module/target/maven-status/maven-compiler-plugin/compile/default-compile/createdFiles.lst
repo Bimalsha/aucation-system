@@ -1,0 +1,16 @@
+com\auction\entity\User.class
+com\auction\ejb\Authentication.class
+com\auction\entity\Auction.class
+com\auction\jms\BidProcessorMDB.class
+com\auction\ejb\AuctionWebSocketEndpointLocal.class
+com\auction\ejb\AuctionManager.class
+com\auction\ejb\AuthenticationBean.class
+com\auction\ejb\BidManagerBean.class
+com\auction\entity\AuctionStatus.class
+com\auction\jms\AuctionUpdateMDB.class
+com\auction\ejb\WebSocketRegistryEJB.class
+com\auction\ejb\WebSocketBroadcaster.class
+com\auction\ejb\AuctionManagerBean.class
+com\auction\ejb\BidManager.class
+com\auction\ejb\AuctionInMemoryStorageSingleton.class
+com\auction\ejb\AuthenticationServiceSingleton.class
